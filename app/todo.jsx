@@ -16,11 +16,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fff",
-    padding: 16
+    padding: 16,
   },
   title: {
     fontSize: 32,
     fontWeight: "600",
-    marginBottom: 45
-  }
-})
+    marginBottom: 45,
+  }})

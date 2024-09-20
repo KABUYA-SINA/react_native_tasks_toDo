@@ -4,7 +4,6 @@ import { Ionicons } from '@expo/vector-icons';
 import {updateStatus, removeTodo} from "../redux/todo"
 import ElementButtons from "@/components/ElementButtons"
 
-
 export default function Index({ navigation }) {
 
   const todoList = useSelector(state => state.todo.list)
@@ -38,71 +37,67 @@ export default function Index({ navigation }) {
               <Pressable onPress={() => handleToggleStatus(todo.id, todo.checked)} style={styles.checkbox}>
                   {todo.checked && <Ionicons name="checkmark"  size={32} color="black" selectable={true}/>}
               </Pressable>
-              <View>
-                  <Text style={styles.titleCards}>{todo.name}</Text>
-                  <Text style={styles.description}>{todo.description === "" ? "No description added" : todo.description}</Text>
-                  <Pressable onPress={() => handleRemove(todo)}>
-                    <Text style={styles.delete} selectable={true}>
-                        Delete
-                    </Text>
-                  </Pressable>
+              <View style={styles.parent}>
+                <Text style={styles.titleCards}>{todo.name}</Text>
+                <Text style={styles.description}>
+                    {todo.description ? todo.description : "No description added"}
+                </Text>
+                <Pressable onPress={() => handleRemove(todo)}>
+                  <Text style={styles.delete} selectable={true}>
+                      Delete
+                  </Text>
+                </Pressable>
               </View>
             </View>
           )
         })
       }
-      <ElementButtons onPress={handleNavigationOnPress} selectable={true}>Add to do</ElementButtons>
+      <ElementButtons onPress={handleNavigationOnPress} >Add to do</ElementButtons>
     </ScrollView>
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#fff",
-    padding: 16,
+    padding: 20,
   },
   title: {
-    fontSize: 32,
-    fontWeight: "600",
-    marginBottom: 45
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
   },
   containerCards: {
-    flexDirection: "row",
-    borderBottomColor: "rgba(211,211,211,1)",
-    borderBottomWidth: 1,
-    alignItems: "flex-start",
-    gap: 10,
-    width: "70%",
-    padding: 20
-  },
-  titleCards: {
-    fontSize: 17,
-    fontWeight: "600",
-    marginBottom: 4
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 15,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
   },
   checkbox: {
-      width: 40,
-      height: 40,
-      borderWidth: 1,
-      borderColor: "rga(60, 60, 67, 06)",
-      borderRadius: 4,
-      justifyContent:  "center",
-      alignItems: "center"
-
-
+    marginRight: 15,
+    width: 40,
+    height: 40,
+    borderWidth: 1,
+    borderColor: "rga(60, 60, 67, 06)",
+    borderRadius: 4,
+    justifyContent:  "center",
+    alignItems: "center"
+  },
+  titleCards: {
+    fontSize: 18,
+    fontWeight: '600',
   },
   description: {
-      color: "rga(60, 60, 67, 06)",
-      marginBottom: 7,
-      fontSize: 15,
+    fontSize: 14,
+    color: 'grey',
   },
-  delete:{
-      color: "rgba(0, 122, 255, 1)",
-      fontSize: 15,
-      fontWeight: "600"
+  delete: {
+    color: 'red',
+    marginTop: 5,
+  },
+  parent: {
+    width: "85%"
   }
-})
+});

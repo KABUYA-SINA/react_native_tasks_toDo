@@ -31,16 +31,19 @@ export default function Form() {
                     style={styles.task}
                     placeholder="Name"
                     value={todo}
-                    onChange={(e) => setTodo(e.target.value)}
+                    onChangeText={newText => setTodo(newText)}
                     placeholderTextColor="grey"
+                     maxLength={15}
                 />
                 <TextInput
                     style={styles.desc}
                     placeholder="Desciption (optional)"
                     value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    numberOfLines={15}
+                    onChangeText={newText => setDescription(newText)}
+                    rows={10}
                     multiline={true}
+                    maxLength={70}
+                    editable
                     placeholderTextColor="grey"
                 />
             </View>
@@ -53,19 +56,32 @@ export default function Form() {
 
 const styles = StyleSheet.create({
     container: {
-        gap: 5,
-        width: "70%"
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 20,
+        backgroundColor: "#F7F7F7",
+        width: "90%"
     },
     task: {
-        padding: 5,
-        borderColor: "rgba(211,211,211,1)",
-        borderWidth: 1
+        width: '100%',
+        padding: 15,
+        borderColor: "#007BFF",
+        borderWidth: 1,
+        borderRadius: 10,
+        backgroundColor: "#FFFFFF",
+        fontSize: 16,
+        marginBottom: 10,
     },
     desc: {
-        height: 150,
+        width: '100%',
         justifyContent: "flex-start",
-        borderColor: "rgba(211,211,211,1)",
+        borderColor: "#007BFF",
         borderWidth: 1,
-        padding: 5
+        borderRadius: 10,
+        backgroundColor: "#FFFFFF",
+        padding: 10,
+        fontSize: 16,
+        marginBottom: 10,
     }
 })
