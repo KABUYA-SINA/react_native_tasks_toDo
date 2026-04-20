@@ -1,50 +1,106 @@
-# Welcome to your Expo app 👋
+# 📱 React Native Todo App (Redux + Navigation)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## 🚀 Description
 
-## Get started
+Cette application est une **Todo List mobile développée avec React Native**, intégrant une gestion d’état avancée via **Redux Toolkit** et un système de persistance des données.
 
-1. Install dependencies
+Elle permet de créer, afficher, modifier et supprimer des tâches, tout en naviguant entre plusieurs écrans grâce à React Navigation.
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+## 🎯 Objectif du projet
 
-   ```bash
-    npx expo start
-   ```
+* Développer une application mobile fonctionnelle
+* Gérer un state global avec Redux Toolkit
+* Mettre en place la navigation mobile (Stack / Drawer)
+* Persister les données localement
+* Manipuler les composants React Native
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🛠️ Technologies utilisées
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+* React Native
+* Redux Toolkit
+* Redux Persist
+* React Navigation (Stack / Drawer)
+* AsyncStorage
+* Expo Vector Icons
 
-## Get a fresh project
+---
 
-When you're ready, run:
+## ⚙️ Fonctionnalités
 
-```bash
-npm run reset-project
-```
+* 📝 Ajout de tâches (nom + description)
+* ❌ Suppression de tâches
+* ✔️ Marquer une tâche comme complétée
+* 🔁 Mise à jour du statut des tâches
+* 💾 Sauvegarde automatique (persist store)
+* 📱 Navigation entre écran Home et création de tâche
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 🧠 Architecture Redux
 
-To learn more about developing your project with Expo, look at the following resources:
+* `todoSlice` :
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+  * `addTodo` → ajouter une tâche
+  * `removeTodo` → supprimer une tâche
+  * `updateStatus` → changer l’état (done / not done)
 
-## Join the community
+* Store configuré avec :
 
-Join our community of developers creating universal apps.
+  * Redux Persist (AsyncStorage)
+  * CombineReducers
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+## 📂 Structure globale
+
+* `Navigation / Drawer`
+* `Screens`
+
+  * Home (liste des tâches)
+  * Create Todo
+* `Components`
+
+  * Form
+  * ToDoCards
+  * Buttons
+* `Redux`
+
+  * store
+  * slice todo
+
+---
+
+## 📌 Fonctionnement
+
+1. L’utilisateur ajoute une tâche via un formulaire
+2. La tâche est stockée dans Redux
+3. Elle est persistée localement
+4. L’utilisateur peut :
+
+   * la cocher (completed)
+   * la supprimer
+5. Navigation fluide entre les écrans
+
+---
+
+## 💡 Compétences développées
+
+* Développement mobile avec React Native
+* Gestion d’état global avec Redux Toolkit
+* Navigation mobile avancée
+* Persistance de données
+* Architecture d’application scalable
+
+---
+
+## 👨‍💻 Auteur
+
+**Sina Kabuya**
+GitHub : https://github.com/KABUYA-SINA
+Portfolio : https://kabuya-sina.github.io/Portfolio-SK/
+
+---
